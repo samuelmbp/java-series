@@ -1,10 +1,9 @@
 public class Main {
     public static void main(String[] args) throws Exception {
-        int age = 30;
-        age = 35;
-
-        int myAge = 26;
-        int herAge = myAge;
-        System.out.println(herAge);
+        byte age  = 30;
+        long viewsCount = 3_123_456_789L;
+        float price = 10.99F;
+        char letter = 'a';
+        boolean isEligible = true; // or false
     }
 }
