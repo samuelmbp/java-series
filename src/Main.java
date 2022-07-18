@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Date;
 import java.awt.*;
+import java.text.NumberFormat;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -50,20 +51,41 @@ public class Main {
         // CASTING AND TYPE CONVERSION
         // =====================================
         // double result = (double)10 / (double)3; // CASTING
-        System.out.println((double) 10 / (double) 3);
-
+        // System.out.println((double) 10 / (double) 3);
         // Implicit casting (automatic casting) byte -> short -> int
-        short x = 1;
-        int y = x + 2;
-        System.out.println(y); // 3
+        // short x = 1;
+        // int y = x + 2;
+        // System.out.println(y); // 3
 
         // Explicit casting (manually casting)
         // String number = "1";
         // int c = Integer.parseInt(number) + 2;
         // System.out.println(c);
 
-        String number = "1.1";
-        double c = Double.parseDouble(number) + 2;
-        System.out.println(c);
+        // String number = "1.1";
+        // double c = Double.parseDouble(number) + 2;
+        // System.out.println(c);
+
+        // =====================================
+        // MATH CLASS
+        // =====================================
+        // int result = Math.round(1.1F); // 1
+        // int result = (int)Math.ceil(1.1F); // 2
+        // int result = (int)Math.floor(1.1F); // 1
+        // int result = Math.max(1, 2); // 1
+        // int result = Math.min(1, 2); // 1
+        // int result = (short) Math.round(Math.random() * 100);
+        // int result = (short) (Math.random() * 100);
+        // System.out.println(result);
+
+        // =====================================
+        // FORMATTING NUMBERS
+        // =====================================
+        // NumberFormat currency = NumberFormat.getCurrencyInstance();
+        // String result = currency.format(1234567.891);
+        // System.out.println(result);
+
+        String result = NumberFormat.getPercentInstance().format(0.9);
+        System.out.println(result);
     }
 }
