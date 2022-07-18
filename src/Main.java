@@ -30,13 +30,40 @@ public class Main {
         // ==================================
         // ARRAYS (HAVE A FIXED LENGTH)
         // ==================================
-        int[] numbers = { 1, 5, 3, 4, 2 };
-        Arrays.sort(numbers);
-        System.out.println(Arrays.toString(numbers));
-        System.out.println(numbers.length);
+        // int[] numbers = { 1, 5, 3, 4, 2 };
+        // Arrays.sort(numbers);
+        // System.out.println(Arrays.toString(numbers));
+        // System.out.println(numbers.length);
 
-        // MULTI-DIMENSIONAL ARRAYS
-        int[][] nums = { { 1, 2, 3 }, { 4, 5, 6 } };
-        System.out.println(Arrays.deepToString((nums)));
+        // // MULTI-DIMENSIONAL ARRAYS
+        // int[][] nums = { { 1, 2, 3 }, { 4, 5, 6 } };
+        // System.out.println(Arrays.deepToString((nums)));
+
+        // ===================================
+        // CONSTANTS
+        // ===================================
+        // final float PI = 3.14F;
+        // // PI = 3.1F; // error
+        // System.out.println(PI);
+
+        // =====================================
+        // CASTING AND TYPE CONVERSION
+        // =====================================
+        // double result = (double)10 / (double)3; // CASTING
+        System.out.println((double) 10 / (double) 3);
+
+        // Implicit casting (automatic casting) byte -> short -> int
+        short x = 1;
+        int y = x + 2;
+        System.out.println(y); // 3
+
+        // Explicit casting (manually casting)
+        // String number = "1";
+        // int c = Integer.parseInt(number) + 2;
+        // System.out.println(c);
+
+        String number = "1.1";
+        double c = Double.parseDouble(number) + 2;
+        System.out.println(c);
     }
 }
