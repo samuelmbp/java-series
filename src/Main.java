@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 import java.awt.*;
 import java.text.NumberFormat;
 
@@ -85,7 +86,25 @@ public class Main {
         // String result = currency.format(1234567.891);
         // System.out.println(result);
 
-        String result = NumberFormat.getPercentInstance().format(0.9);
-        System.out.println(result);
+        // String result = NumberFormat.getPercentInstance().format(0.9);
+        // System.out.println(result);
+
+        // =====================================
+        // READING INPUTS
+        // =====================================
+
+        // NUMBERS
+        // Scanner scanner = new Scanner(System.in); // Terminal
+        // System.out.print("Age: ");
+        // byte age = scanner.nextByte();
+        // System.out.println("You are " + age);
+
+        // STRINGS
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Name: ");
+        // String name = scanner.next(); // Samuel
+        String name = scanner.nextLine().trim(); // Samuel Raducan
+        System.out.println("You are " + name);
+
     }
 }
