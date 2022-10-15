@@ -1,0 +1,29 @@
+package oop;
+
+public class Classes {
+    // ===================================
+    // NOTE: Creating Objects / Instances
+    // ===================================
+
+    // textBox1 = variable(primitive -> STACK)  | new TextBox(Object -> HEAP)
+//        TextBox textBox1 = new TextBox();
+//        textBox1.setText("Box One");
+//        System.out.println(textBox1.text.toUpperCase());
+
+//        TextBox textBox2 = new TextBox();
+//        textBox2.setText("Box Two");
+//        System.out.println(textBox2.text);
+
+    // ===================================
+    // NOTE: Memory Allocation
+    // ===================================
+
+    // HEAP (Objects storage - Reference types)
+    // STACK ( Primitives and short-lived variables)
+//        TextBox textBox2 = textBox1;
+//        System.out.println(textBox1); // oop.TextBox@4dd8dc3
+//        System.out.println(textBox2); // oop.TextBox@4dd8dc3
+//        textBox2.setText("Hello, world.");
+//        System.out.println(textBox1.text); // "Hello, world!" (NOT "Box One") -> Referencing the same object
+
+}
