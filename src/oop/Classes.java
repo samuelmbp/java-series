@@ -26,4 +26,18 @@ public class Classes {
 //        textBox2.setText("Hello, world.");
 //        System.out.println(textBox1.text); // "Hello, world!" (NOT "Box One") -> Referencing the same object
 
+
+    // ===================================
+    // NOTE: Procedural Programming
+    // ===================================
+//        int baseSalary = 50_000;
+//        int extraHours = 10;
+//        int hourlyRate = 20;
+//
+//        int wage = calculateWage(baseSalary, extraHours, hourlyRate);
+//        System.out.println(wage);
+//    public static int calculateWage(int baseSalary, int extraHours, int hourlyRate) {
+//        return baseSalary + extraHours * hourlyRate;
+//    }
+
 }
