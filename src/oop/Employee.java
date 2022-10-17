@@ -6,10 +6,25 @@ public class Employee {
     private int baseSalary;
     private int hourlyRate;
 
+    // Static Field -> Share across all objects
+    public static int numberOfEmployees;
+
     // Constructor
     public Employee(int baseSalary, int hourlyRate) {
         setBaseSalary(baseSalary);
         setHourlyRate( hourlyRate);
+        numberOfEmployees++;
+    }
+
+    // Static Method
+    public static void printNumberOfEmployees() {
+        System.out.println(numberOfEmployees);
+    }
+
+    // Constructor Overloading
+    public Employee(int baseSalary) {
+        setBaseSalary(baseSalary);
+        setHourlyRate(hourlyRate);
     }
 
     // Method Overloading
@@ -27,7 +42,7 @@ public class Employee {
     }
 
     private void setHourlyRate(int hourlyRate) {
-        if (hourlyRate <= 0) throw new IllegalArgumentException("Hourly rate cannot be 0 or less");
+        if (hourlyRate < 0) throw new IllegalArgumentException("Hourly rate cannot be 0 or less");
         this.hourlyRate = hourlyRate;
     }
 
