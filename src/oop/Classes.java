@@ -40,4 +40,9 @@ public class Classes {
 //        return baseSalary + extraHours * hourlyRate;
 //    }
 
+    // =====================================
+    // Coupling
+    // =====================================
+//    Browser browser = new Browser();
+//        browser.navigate("...");
 }
