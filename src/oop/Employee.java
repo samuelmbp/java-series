@@ -1,6 +1,8 @@
 package oop;
 
+// Encapsulation -> Bundle the data/fields and methods that operate on the data in a single unit (class)
 public class Employee {
+    // Abstraction -> Reduce complexity by hiding the implementation detail
     private int baseSalary;
     private int hourlyRate;
 
@@ -18,11 +20,11 @@ public class Employee {
         this.hourlyRate = hourlyRate;
     }
 
-    public int getBaseSalary() {
+    private int getBaseSalary() {
         return baseSalary;
     }
 
-    public int getHourlyRate() {
+    private int getHourlyRate() {
         return hourlyRate;
     }
 }
