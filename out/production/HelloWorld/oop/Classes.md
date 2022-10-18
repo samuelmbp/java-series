@@ -57,3 +57,13 @@ System.out.println(wage);
 // ===================================
 System.out.println(Employee.numberOfEmployees);
 Employee.printNumberOfEmployees();
+
+// =====================================
+The Object Class
+// =====================================
+TextBox box1 = new TextBox();
+TextBox box2 = box1;
+System.out.println(box1.hashCode()); // 123456
+System.out.println(box2.hashCode()); // 123456
+System.out.println(box1.equals(box2)); // true
+System.out.println(box1.toString());
