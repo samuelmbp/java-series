@@ -21,11 +21,6 @@ public class Point {
 //        return other.x == x && other.y == y;
 //    }
 //
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(x, y);
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true; // Reference Equality

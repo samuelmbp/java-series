@@ -1,13 +1,16 @@
 package oop;
 
 // Inheritance
-public class UIControl {
+abstract class UIControl {
     private boolean isEnabled = true;
 
-    public UIControl(boolean isEnabled) {
-        this.isEnabled = isEnabled;
-        System.out.println("UIControl");
-    }
+//    public UIControl(boolean isEnabled) {
+//        this.isEnabled = isEnabled;
+//        System.out.println("UIControl");
+//    }
+
+    // Polymorphism
+    abstract  void render();
 
     public void enable() {
         isEnabled = true;

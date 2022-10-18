@@ -67,3 +67,11 @@ System.out.println(box1.hashCode()); // 123456
 System.out.println(box2.hashCode()); // 123456
 System.out.println(box1.equals(box2)); // true
 System.out.println(box1.toString());
+
+// =====================================
+// Polymorphism
+// =====================================
+UIControl[] controls = { new TextBox(), new CheckBox()};
+for (UIControl control : controls) {
+control.render();
+}
