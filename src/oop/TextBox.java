@@ -1,7 +1,8 @@
 package oop;
 
-public class TextBox {
-    public String text = "";
+// Inherits from UIControl
+public class TextBox extends UIControl {
+    private String text = "";
 
     public void setText(String text) {
         this.text = text;
