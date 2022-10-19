@@ -2,7 +2,7 @@ package oop;
 
 public class TaxReport {
     // Interface
-    private final TaxCalculator taxCalculator;
+    private TaxCalculator taxCalculator;
 
     // Constructor Dependency Injection
     public TaxReport(TaxCalculator taxCalculator) {
@@ -12,5 +12,10 @@ public class TaxReport {
     public void show() {
         double tax = taxCalculator.calculateTax();
         System.out.println(tax);
+    }
+
+    // Setter - Dependency Injection
+    public void setTaxCalculator(TaxCalculator taxCalculator) {
+        this.taxCalculator = taxCalculator;
     }
 }
