@@ -1,10 +1,12 @@
 package oop;
 
 public class TaxReport {
-    private TaxCalculator taxCalculator;
+    // Interface
+    private final TaxCalculator taxCalculator;
 
-    public TaxReport() {
-        taxCalculator = new TaxCalculator(100_000);
+    // Constructor Dependency Injection
+    public TaxReport(TaxCalculator taxCalculator) {
+        this.taxCalculator = taxCalculator;
     }
 
     public void show() {
