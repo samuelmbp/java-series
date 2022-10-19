@@ -5,17 +5,18 @@ public class TaxReport {
     private TaxCalculator taxCalculator;
 
     // Constructor Dependency Injection
-    public TaxReport(TaxCalculator taxCalculator) {
-        this.taxCalculator = taxCalculator;
-    }
+//    public TaxReport(TaxCalculator taxCalculator) {
+//        this.taxCalculator = taxCalculator;
+//    }
 
-    public void show() {
+    // Method Dependency Injection
+    public void show(TaxCalculator taxCalculator) {
         double tax = taxCalculator.calculateTax();
         System.out.println(tax);
     }
 
     // Setter - Dependency Injection
-    public void setTaxCalculator(TaxCalculator taxCalculator) {
-        this.taxCalculator = taxCalculator;
-    }
+//    public void setTaxCalculator(TaxCalculator taxCalculator) {
+//        this.taxCalculator = taxCalculator;
+//    }
 }
