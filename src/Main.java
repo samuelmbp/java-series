@@ -1,13 +1,8 @@
-import oop.CheckBox;
-import oop.TextBox;
-import oop.UIControl;
+import oop.TaxReport;
 
 public class Main {
     public static void main(String[] args) {
-        // Polymorphism
-        UIControl[] controls = { new TextBox(), new CheckBox()};
-        for (UIControl control : controls) {
-            control.render();
-        }
+        TaxReport taxReport = new TaxReport();
+        taxReport.show();
     }
 }
