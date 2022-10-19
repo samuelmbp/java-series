@@ -75,3 +75,24 @@ UIControl[] controls = { new TextBox(), new CheckBox()};
 for (UIControl control : controls) {
 control.render();
 }
+
+// =====================================
+// Constructor Injection
+// =====================================
+TaxCalculator2018 taxCalculator = new TaxCalculator2018(100_000);
+TaxReport taxReport = new TaxReport(taxCalculator);
+taxReport.show(taxReport);
+
+// =====================================
+// Method Injection
+// =====================================
+TaxCalculator2018 taxCalculator = new TaxCalculator2018(100_000);
+TaxReport taxReport = new TaxReport();
+taxReport.show(taxCalculator);
+taxReport.show(new TaxCalculator2019());
+
+// =====================================
+// Setter Injection
+// =====================================
+taxReport.setTaxCalculator(new TaxCalculator2019());
+taxReport.show();
