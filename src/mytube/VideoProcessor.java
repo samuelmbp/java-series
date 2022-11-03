@@ -1,10 +1,9 @@
 package mytube;
 
 public class VideoProcessor {
-    // Use Constructor Dependency
-    private VideoEncoder videoEncoder;
-    private VideoDatabase videoDatabase;
-    private NotificationService emailService;
+    private final VideoEncoder videoEncoder;
+    private final VideoDatabase videoDatabase;
+    private final NotificationService emailService;
 
     public VideoProcessor(VideoEncoder videoEncoder, VideoDatabase videoDatabase, NotificationService emailService) {
         this.videoEncoder = videoEncoder;
