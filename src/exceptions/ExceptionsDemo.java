@@ -37,7 +37,7 @@ public class ExceptionsDemo {
 //    }
 
     // Handle Checked Exceptions
-    public static void show() {
+//    public static void show() {
         // Handle Multiple Exceptions
 //        try {
 //            FileReader reader = new FileReader("file.txt");
@@ -51,14 +51,24 @@ public class ExceptionsDemo {
 //            throw new RuntimeException(e);
 //        }
 
-        try (
-            FileReader reader = new FileReader("file.txt");
-            FileWriter writer = new FileWriter("...")
-            ) { //  <- try with resources statement (No need for finally block)
-            int value = reader.read();
-            new SimpleDateFormat().parse("");
-        } catch (IOException | ParseException e) {
-            System.out.println("Could not read data.");
+//        try (
+//            FileReader reader = new FileReader("file.txt");
+//            FileWriter writer = new FileWriter("...")
+//            ) { //  <- try with resources statement (No need for finally block)
+//            int value = reader.read();
+//            new SimpleDateFormat().parse("");
+//        } catch (IOException | ParseException e) {
+//            System.out.println("Could not read data.");
+//        }
+//    }
+
+    public static void show() throws IOException {
+        Account account = new Account();
+        try {
+            account.deposit(-1);
+        } catch (IOException e) {
+            System.out.println("Logging");
+            throw e;
         }
     }
 }
