@@ -18,7 +18,8 @@ public class Account {
     }
 
     /* Custom Exceptions */
-    public void withdraw(float amount) throws InsufficientFundsException {
-        if (amount > balance) throw new InsufficientFundsException();
+    public void withdraw(float amount) throws AccountException {
+        if (amount > balance)
+            throw new AccountException(new InsufficientFundsException());
     }
 }
