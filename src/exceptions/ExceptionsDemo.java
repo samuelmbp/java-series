@@ -50,12 +50,21 @@ public class ExceptionsDemo {
 //        }
 
         // Handle Multiple Exceptions
+        FileReader reader = null;
         try {
-            FileReader reader = new FileReader("file.txt");
+            reader = new FileReader("file.txt");
             int value = reader.read();
             new SimpleDateFormat().parse("");
         } catch (IOException | ParseException e) {
             System.out.println("Could not read data.");
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 
