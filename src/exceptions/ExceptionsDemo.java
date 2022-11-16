@@ -65,10 +65,17 @@ public class ExceptionsDemo {
     public static void show() throws IOException {
         Account account = new Account();
         try {
-            account.deposit(-1);
-        } catch (IOException e) {
-            System.out.println("Logging");
-            throw e;
+            account.withdraw(10);
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
         }
+//        try {
+//            account.deposit(-1);
+//        } catch (IOException e) {
+//            System.out.println("Logging");
+//            throw e;
+//        }
+
+
     }
 }
