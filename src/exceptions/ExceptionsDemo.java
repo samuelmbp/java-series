@@ -2,6 +2,9 @@ package exceptions;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * TYPES OF EXCEPTIONS:
@@ -34,14 +37,26 @@ public class ExceptionsDemo {
 
     // Handle Checked Exceptions
     public static void show() {
+//        try {
+//            FileReader reader = new FileReader("file.txt");
+//            int value = reader.read();
+//            new SimpleDateFormat().parse("");
+//        } catch (FileNotFoundException ex) {
+//            System.out.println("File does not exist.");
+//        } catch (IOException e) {
+//            System.out.println("Could not read data.");
+//        } catch (ParseException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        // Handle Multiple Exceptions
         try {
             FileReader reader = new FileReader("file.txt");
-            System.out.println("File opened.");
-        } catch (FileNotFoundException ex) {
-            System.out.println("File does not exist.");
-            System.out.println(ex.getMessage());
+            int value = reader.read();
+            new SimpleDateFormat().parse("");
+        } catch (IOException | ParseException e) {
+            System.out.println("Could not read data.");
         }
-
     }
 
     public static void sayHello(String name) {
