@@ -38,6 +38,7 @@ public class ExceptionsDemo {
 
     // Handle Checked Exceptions
     public static void show() {
+        // Handle Multiple Exceptions
 //        try {
 //            FileReader reader = new FileReader("file.txt");
 //            int value = reader.read();
@@ -50,19 +51,14 @@ public class ExceptionsDemo {
 //            throw new RuntimeException(e);
 //        }
 
-        // Handle Multiple Exceptions
         try (
             FileReader reader = new FileReader("file.txt");
             FileWriter writer = new FileWriter("...")
-            ) { //  <- try with resources statement
+            ) { //  <- try with resources statement (No need for finally block)
             int value = reader.read();
             new SimpleDateFormat().parse("");
         } catch (IOException | ParseException e) {
             System.out.println("Could not read data.");
         }
-    }
-
-    public static void sayHello(String name) {
-        System.out.println(name.toUpperCase());
     }
 }
