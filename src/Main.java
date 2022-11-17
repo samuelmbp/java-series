@@ -7,5 +7,6 @@ public class Main {
         System.out.println(max);
         User user = Utils.max(new User(10), new User(20));
         System.out.println(user);
+        Utils.print(1, "Samuel");
     }
 }
