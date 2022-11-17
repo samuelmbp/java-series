@@ -1,11 +1,14 @@
-import exceptions.ExceptionsDemo;
+import generics.List;
+import generics.User;
 
 public class Main {
     public static void main(String[] args)  {
-        try {
-            ExceptionsDemo.show();
-        } catch (Throwable e) {
-            System.out.println("An unexpected error has occurred.");
-        }
+        List list = new List();
+        list.add(1);
+        list.add("1");
+        list.add(new User());
+
+        int number = (int)list.get(1);
+        System.out.println(number);
     }
 }
