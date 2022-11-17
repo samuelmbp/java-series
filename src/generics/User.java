@@ -17,5 +17,10 @@ public class User implements Comparable<User> {
         // return Integer.compare(this.points, other.points);
 
     }
+
+    @Override
+    public String toString() {
+        return "Points = " + points;
+    }
 }
 
