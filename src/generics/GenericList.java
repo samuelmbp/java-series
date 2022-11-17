@@ -5,7 +5,7 @@ package generics;
  * T extends Number -> constraints (accepts only numbers)
  * */
 
-public class GenericList<T extends Number> {
+public class GenericList<T> {
     private T[] items = (T[]) new Object[10];
     private int count;
 
