@@ -2,8 +2,23 @@ package generics;
 
 /**
  * T -> type class parameter
+ * T extends Number -> constraints (accepts only numbers)
  * */
-public class GenericList<T> {
+
+//public class GenericList<T> {
+//    private T[] items = (T[]) new Object[10];
+//    private int count;
+//
+//    public void add(T item) {
+//        items[count++] = item;
+//    }
+//
+//    public T get(int index) {
+//       return items[index];
+//    }
+//}
+
+public class GenericList<T extends Number> {
     private T[] items = (T[]) new Object[10];
     private int count;
 
