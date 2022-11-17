@@ -1,14 +1,12 @@
-import generics.List;
-import generics.User;
+import generics.GenericList;
 
 public class Main {
     public static void main(String[] args)  {
-        List list = new List();
-        list.add(1);
-        list.add("1");
-        list.add(new User());
-
-        int number = (int)list.get(1);
+//      new GenericList<Integer>().add(1);
+//        new GenericList<User>().add(new User());
+        GenericList<String> list =  new GenericList<>();
+        list.add("a");
+        String number = list.get(0);
         System.out.println(number);
     }
 }
