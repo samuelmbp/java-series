@@ -1,13 +1,18 @@
-import generics.GenericList;
-import generics.Instructor;
-import generics.User;
-import generics.Utils;
+import collections.GenericList;
+import java.util.Iterator;
 
 public class Main {
-    public static void main(String[] args)  {
-      GenericList<Instructor> instructors = new GenericList<>();
-      GenericList<User> users = new GenericList<>();
+    public static void main(String[] args) {
+        GenericList<String> list = new GenericList<>();
+        Iterator<String> iterator = list.iterator();
 
-        Utils.printUsers(new GenericList<Instructor>());
+        while (iterator.hasNext()) {
+            String current = iterator.next();
+            System.out.println(current);
+        }
+
+        // Refactor with a forEach
+        for (String item : list)
+            System.out.println(item);
     }
 }
