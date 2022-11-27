@@ -3,6 +3,7 @@ package collections;
 import java.util.*;
 
 /* Hash Table -> Data Structure in CS */
+// Key-Value Pairs
 public class MapDemo {
     public static void show() {
         Customer c1 =
@@ -16,7 +17,7 @@ public class MapDemo {
         // Instead of using a loop, use a hash map to find an obj
         // -> speed wise it's much faster no matter the size
         Customer customer = map.get("e1");
-        System.out.println(customer); // Samuel
+        System.out.println(customer); // Samuel\
 
         // Null for non existent customers
         System.out.println(map.get("e10"));
