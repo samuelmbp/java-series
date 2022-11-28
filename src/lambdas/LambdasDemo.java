@@ -1,5 +1,9 @@
 package lambdas;
 
+
+import java.util.List;
+import java.util.function.Consumer;
+
 public class LambdasDemo {
     public static String prefix = "-";
 
@@ -8,8 +12,28 @@ public class LambdasDemo {
     public static void print(String message) {
     }
 
+    /* Consumer Interface */
+    public static void showConsumer() {
+        List<Integer> list = List.of(1,2, 3);
+
+        // Imperative Programming (for, if/else, switch/case) -> "How it should be done"
+        for (int item : list) 
+            System.out.println(item);
+
+        // Declarative Programming -> "What needs to be done"
+        list.forEach(System.out::println);
+
+        // Chaining Consumers
+        List<String> listString = List.of("a", "b", "c");
+        Consumer<String> print = item -> System.out.println(item);
+        Consumer<String> printUpperCase = item -> System.out.println(item.toUpperCase());
+
+        listString.forEach(print.andThen(printUpperCase).andThen(print));
+    }
+
+
+    /* Lambdas Expressions -> Benefit: more compact and easier to read */
     public static void show() {
-        // Lambda Expression -> Compact and easier to read expressions
         greet(message -> System.out.println(prefix + message));
 
         /* Method References -> shorter */
