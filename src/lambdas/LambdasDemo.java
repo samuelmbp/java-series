@@ -3,6 +3,7 @@ package lambdas;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class LambdasDemo {
     public static String prefix = "-";
@@ -12,7 +13,15 @@ public class LambdasDemo {
     public static void print(String message) {
     }
 
-    /* Consumer Interface */
+    /* Supplier Interface -> Supplies a value */
+    public static void showSupplier() {
+        // Supplier<Double> getRandom = () -> Math.random();
+        Supplier<Double> getRandom = Math::random;
+        Double randomValue = getRandom.get();
+        System.out.println(randomValue);
+    }
+
+    /* Consumer Interface -> Consumes a value */
     public static void showConsumer() {
         List<Integer> list = List.of(1,2, 3);
 
@@ -22,6 +31,7 @@ public class LambdasDemo {
 
         // Declarative Programming -> "What needs to be done"
         list.forEach(System.out::println);
+        list.forEach(item -> System.out.println(item));
 
         // Chaining Consumers
         List<String> listString = List.of("a", "b", "c");
