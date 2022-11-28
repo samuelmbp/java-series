@@ -3,6 +3,7 @@ package lambdas;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class LambdasDemo {
@@ -13,7 +14,37 @@ public class LambdasDemo {
     public static void print(String message) {
     }
 
-    /* Supplier Interface -> Supplies a value */
+    /* Function Interface */
+    public static void showFunctionInterface() {
+//        Function<String, Integer> map = str -> str.length();
+        Function<String, Integer> map = String::length;
+        Integer length = map.apply("Sky");
+        System.out.println(length);
+
+        // Compose Small Reusable Functions
+        /*
+         * "key:value"
+         * first: "key=value"
+         * second: "{key=value}
+        */
+        Function<String, String> replaceColon = str -> str.replace(":", "=");
+        Function<String, String> addBraces = str -> "{" + str + "}";
+
+        // Declarative Programming
+        String result = replaceColon
+                        .andThen(addBraces)
+                        .apply("key:value");
+        System.out.println(result); // {key=value}
+
+        String reversedResult = addBraces
+                                .compose(replaceColon)
+                                .apply("key:value");
+        System.out.println(reversedResult); // {key=value}
+
+
+    }
+
+/* Supplier Interface -> Supplies a value */
     public static void showSupplier() {
         // Supplier<Double> getRandom = () -> Math.random();
         Supplier<Double> getRandom = Math::random;
