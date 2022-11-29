@@ -1,7 +1,7 @@
-import lambdas.LambdasDemo;
+import streams.StreamsDemo;
 
 public class Main {
     public static void main(String[] args) {
-        LambdasDemo.showFunctionInterface();
+        StreamsDemo.show();
     }
 }
