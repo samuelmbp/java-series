@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /* Streams: Process a collection of data in a declarative/functional way */
@@ -44,7 +45,7 @@ public class StreamsDemo {
     }
 
     /* Transform the values in a stream */
-    public static void mapElements() {
+    public static void mappingElements() {
         List<Movie> movies = List.of(
                 new Movie("a", 10),
                 new Movie("b", 15),
@@ -59,5 +60,18 @@ public class StreamsDemo {
         // FlatMap -> work with individual values
         Stream<List<Integer>> stream = Stream.of(List.of(1,2,3), List.of(4,5,6));
         stream.flatMap(list -> list.stream()).forEach(number -> System.out.println(number));
+    }
+
+    public static void filteringElements() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 15),
+                new Movie("Red Notice", 20)
+        );
+
+        Predicate<Movie> isPopular = movie -> movie.getLikes() > 10;
+        movies.stream()
+                .filter(isPopular)
+                .forEach(movie -> System.out.println(movie.getTitle()));
     }
 }
