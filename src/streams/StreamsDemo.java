@@ -2,6 +2,7 @@ package streams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -30,7 +31,7 @@ public class StreamsDemo {
 
         // Collection
         ArrayList<String> list = new ArrayList<>();
-//        list.stream();
+        list.stream();
 
         int[] numbers = { 1,2,3 };
         Arrays.stream(numbers).forEach(number -> System.out.println(number));
@@ -40,5 +41,23 @@ public class StreamsDemo {
 
         // Unary operator: takes a value and returns a new value
         Stream.iterate(1, number -> number + 1).limit(10).forEach(number -> System.out.println(number)); // numbers 1...10
+    }
+
+    /* Transform the values in a stream */
+    public static void mapElements() {
+        List<Movie> movies = List.of(
+                new Movie("a", 10),
+                new Movie("b", 15),
+                new Movie("c", 20)
+        );
+
+        // Map -> work with all the values
+        movies.stream()
+                .map(Movie::getTitle)
+                .forEach(name -> System.out.println(name.toUpperCase()));
+
+        // FlatMap -> work with individual values
+        Stream<List<Integer>> stream = Stream.of(List.of(1,2,3), List.of(4,5,6));
+        stream.flatMap(list -> list.stream()).forEach(number -> System.out.println(number));
     }
 }
