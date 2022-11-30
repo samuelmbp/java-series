@@ -127,4 +127,29 @@ public class StreamsDemo {
                 .distinct() // Unique Elements
                 .forEach(System.out::println);
     }
+
+    public static void peekingElements() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 20),
+                new Movie("Red Notice", 30)
+        );
+
+        // Peek -> Get the output of each operation (good for debugging)
+        movies.stream()
+                .filter(movie -> movie.getLikes() > 10)
+                .peek(movie -> System.out.println("Filtered: " + movie.getTitle()))
+                .map(Movie::getTitle)
+                .peek(title -> System.out.println("Mapped: " + title))
+                .forEach(System.out::println);
+
+         /* OUTPUT:
+            Filtered: Murder on the Orient Express
+            Mapped: Murder on the Orient Express
+            Murder on the Orient Express
+            Filtered: Red Notice
+            Mapped: Red Notice
+            Red Notice
+         *  */
+    }
 }
