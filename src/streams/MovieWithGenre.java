@@ -1,13 +1,14 @@
 package streams;
 
-public class Movie {
-    private String title;
+public class MovieWithGenre {
+    private final String title;
     private final int likes;
-    private Genre genre;
+    private final Genre genre;
 
-    public Movie(String title, int likes) {
+    public MovieWithGenre(String title, int likes, Genre genre) {
         this.title = title;
         this.likes = likes;
+        this.genre = genre;
     }
 
     public int getLikes() {
@@ -20,5 +21,10 @@ public class Movie {
 
     public Genre getGenre() {
         return genre;
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }

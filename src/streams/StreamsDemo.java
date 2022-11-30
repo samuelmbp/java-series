@@ -226,4 +226,49 @@ public class StreamsDemo {
                 .map(Movie::getTitle)
                 .collect(Collectors.joining(", ")); // Murder on the Orient Express, Red Notice
     }
+
+    public static void groupingElements() {
+        List<MovieWithGenre> movies = List.of(
+                new MovieWithGenre("The Godfather", 10, Genre.THRILLER),
+                new MovieWithGenre("Murder on the Orient Express", 20, Genre.ACTION),
+                new MovieWithGenre("Red Notice", 30, Genre.ACTION)
+        );
+
+        // {THRILLER=[The Godfather], ACTION=[Murder on the Orient Express, Red Notice]}
+        Map<Genre, List<MovieWithGenre>> resultList = movies.stream()
+                .collect(Collectors.groupingBy(MovieWithGenre::getGenre));
+
+
+        // {ACTION=[Murder on the Orient Express, Red Notice], THRILLER=[The Godfather]}
+        Map<Genre, Set<MovieWithGenre>> resultSet = movies.stream()
+                .collect(Collectors.groupingBy(
+                        MovieWithGenre::getGenre, Collectors.toSet()));
+
+        // {ACTION=2, THRILLER=1}
+        Map<Genre, Long> resultCount = movies.stream()
+                .collect(Collectors.groupingBy(
+                        MovieWithGenre::getGenre, Collectors.counting()));
+
+        System.out.println(resultCount);
+    }
+
+    public static void partitioningElements() {
+        List<MovieWithGenre> movies = List.of(
+                new MovieWithGenre("The Godfather", 10, Genre.THRILLER),
+                new MovieWithGenre("Murder on the Orient Express", 20, Genre.ACTION),
+                new MovieWithGenre("Red Notice", 30, Genre.ACTION)
+        );
+
+        // {false=[The Godfather, Murder on the Orient Express], true=[Red Notice]}
+        Map<Boolean, List<MovieWithGenre>> resultList = movies.stream()
+                .collect(Collectors.partitioningBy(movie -> movie.getLikes() > 20));
+
+        // {false=The Godfather, Murder on the Orient Express, true=Red Notice}
+        Map<Boolean, String> resultKeyValuePair = movies.stream()
+                .collect(Collectors.partitioningBy(
+                        movie -> movie.getLikes() > 20,
+                        Collectors.mapping(MovieWithGenre::getTitle, Collectors.joining(", "))));
+
+        System.out.println(resultKeyValuePair);
+    }
 }
