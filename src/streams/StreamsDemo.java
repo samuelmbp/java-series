@@ -1,9 +1,6 @@
 package streams;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -98,6 +95,22 @@ public class StreamsDemo {
                     Red Notice
                 */
                 .dropWhile(movie -> movie.getLikes() < 30) // skips 10 likes and returns everything after 30 (30, 20)
+                .forEach(movie -> System.out.println(movie.getTitle()));
+    }
+
+    public static void sortingStreams() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 20),
+                new Movie("Red Notice", 30)
+        );
+
+        /* Change the order */
+        // a, b -> movie objects
+        movies.stream()
+//                .sorted((a, b) -> a.getTitle().compareTo(b.getTitle())) // (Longer)
+//                .sorted(Comparator.comparing(Movie::getTitle)) // A - Z (Cleaner)
+                .sorted(Comparator.comparing(Movie::getTitle).reversed()) // Z - A
                 .forEach(movie -> System.out.println(movie.getTitle()));
     }
 }
