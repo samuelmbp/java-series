@@ -41,6 +41,10 @@ public class StreamsDemo {
         Stream.iterate(1, number -> number + 1).limit(10).forEach(number -> System.out.println(number)); // numbers 1...10
     }
 
+    // =====================================================================
+    /* TODO: INTERMEDIATE OPERATIONS - BUILD AND CUSTOMISE THE PIPELINES */
+    // =====================================================================
+
     /* Transform the values in a stream */
     public static void mappingElements() {
         List<Movie> movies = List.of(
@@ -151,5 +155,31 @@ public class StreamsDemo {
             Mapped: Red Notice
             Red Notice
          *  */
+    }
+
+
+    // ============================================================================
+    /* TODO: REDUCERS OPERATIONS - REDUCE A STREAM OF OBJECTS TO A SINGLE OBJECT */
+    // ============================================================================
+    public static void simpleReducers() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 20),
+                new Movie("Red Notice", 30)
+        );
+
+        movies.stream().count(); // 3 movies
+
+        /* Matchers */
+        movies.stream().anyMatch(movie -> movie.getLikes() > 10); // true
+        movies.stream().allMatch(movie -> movie.getLikes() > 10); // false
+        movies.stream().noneMatch(movie -> movie.getLikes() > 10); // false
+
+        Movie firstMovie = movies.stream().findFirst().get(); // The God Father
+        Movie maxLikes = movies.stream().max(Comparator.comparing(Movie::getLikes)).get(); // 30
+        Movie minLikes = movies.stream().min(Comparator.comparing(Movie::getLikes)).get(); // 10
+
+        System.out.println(minLikes.getLikes());
+
     }
 }
