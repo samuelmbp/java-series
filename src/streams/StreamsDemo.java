@@ -74,4 +74,30 @@ public class StreamsDemo {
                 .filter(isPopular)
                 .forEach(movie -> System.out.println(movie.getTitle()));
     }
+
+    public static void slicingStreams() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 30),
+                new Movie("Red Notice", 20)
+        );
+
+        // Good for pagination
+        movies.stream().skip(1).limit(2).forEach(movie -> System.out.println(movie.getTitle()));
+
+        movies.stream()
+                // returns only 10 likes (true when finds the first occurrence and then false) -> does not continue the filtering as 30 comes next.
+                // filter -> looks at all the elements in a list and returns all the matching ones.
+                .takeWhile(movie -> movie.getLikes() < 30)
+                .forEach(movie -> System.out.println(movie.getTitle()));
+
+        movies.stream()
+                // Skip all the elements that match the criteria and returns the rest
+                /*
+                    Murder on the Orient Express
+                    Red Notice
+                */
+                .dropWhile(movie -> movie.getLikes() < 30) // skips 10 likes and returns everything after 30 (30, 20)
+                .forEach(movie -> System.out.println(movie.getTitle()));
+    }
 }
