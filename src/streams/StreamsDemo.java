@@ -113,4 +113,18 @@ public class StreamsDemo {
                 .sorted(Comparator.comparing(Movie::getTitle).reversed()) // Z - A
                 .forEach(movie -> System.out.println(movie.getTitle()));
     }
+
+    public static void gettingUniqueElements() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 20),
+                new Movie("Red Notice", 30)
+        );
+
+        movies.stream()
+                .map(Movie::getLikes)
+                .distinct() // Unique Elements
+                .forEach(System.out::println);
+    }
 }
