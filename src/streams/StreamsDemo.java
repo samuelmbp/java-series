@@ -182,4 +182,19 @@ public class StreamsDemo {
         System.out.println(minLikes.getLikes());
 
     }
+
+    public static void reducingStreams() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 20),
+                new Movie("Red Notice", 30)
+        );
+
+        Integer total = movies.stream()
+                .map(Movie::getLikes) // [10, 20, 30]
+//                .reduce((a, b) -> a + b);
+                .reduce(0, Integer::sum);
+
+        System.out.println(total);
+    }
 }
