@@ -2,6 +2,7 @@ package streams;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /* Streams: Process a collection of data in a declarative/functional way */
@@ -196,5 +197,33 @@ public class StreamsDemo {
                 .reduce(0, Integer::sum);
 
         System.out.println(total);
+    }
+
+    /* Collect the result into a data structure: e.g.: List, Set, Map */
+    public static void collectors() {
+        List<Movie> movies = List.of(
+                new Movie("The Godfather", 10),
+                new Movie("Murder on the Orient Express", 20),
+                new Movie("Red Notice", 30)
+        );
+
+        Map<String, Integer> result = movies.stream()
+                .filter(movie -> movie.getLikes() > 10)
+//                .collect(Collectors.toList())
+//                .collect(Collectors.toSet())
+                .collect(Collectors.toMap(Movie::getTitle, Movie::getLikes)); // {Red Notice=30, Murder on the Orient Express=20}
+
+        Integer sumIntegers = movies.stream()
+                .filter(movie -> movie.getLikes() > 10)
+                .collect(Collectors.summingInt(Movie::getLikes));// 50
+
+        IntSummaryStatistics statistics = movies.stream()
+                .filter(movie -> movie.getLikes() > 10)
+                .collect(Collectors.summarizingInt(Movie::getLikes)); // IntSummaryStatistics{count=2, sum=50, min=20, average=25.000000, max=30}
+
+        String commaSeparatedMovies = movies.stream()
+                .filter(movie -> movie.getLikes() > 10)
+                .map(Movie::getTitle)
+                .collect(Collectors.joining(", ")); // Murder on the Orient Express, Red Notice
     }
 }
